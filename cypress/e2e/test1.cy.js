@@ -17,15 +17,17 @@ describe('todo mvc tests', () => {
     cy.screenshot()
   })
 
-  it('Adds a todo', () => {
-    cy.get('.new-todo').type(mainData.firstItem + '{enter}')
-    cy.get('label').should('contain.text', mainData.firstItem)
-    cy.get('.toggle').should('not.be.checked')
-  })
-
-  it('Completes a todo', () => {
-    cy.get('.new-todo').type(mainData.secondItem + '{enter}')
-    cy.get('.toggle').click()
-    cy.get('.toggle').should('be.checked')
+  context('Add items', () => {
+    it('Adds a todo', () => {
+      cy.get('.new-todo').type(mainData.firstItem + '{enter}')
+      cy.get('label').should('contain.text', mainData.firstItem)
+      cy.get('.toggle').should('not.be.checked')
+    })
+  
+    it('Completes a todo', () => {
+      cy.get('.new-todo').type(mainData.secondItem + '{enter}')
+      cy.get('.toggle').click()
+      cy.get('.toggle').should('be.checked')
+    })
   })
 })
