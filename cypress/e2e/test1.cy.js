@@ -4,18 +4,19 @@ describe('todo mvc tests', () => {
   let mainData
 
   before(() => {
+    cy.visit('/')
     cy.fixture('getData').then((data) => {
       mainData = data
     })
   })
 
-  beforeEach(() => {
-    cy.visit('/')
-  })
+  // beforeEach(() => {
+  //   cy.visit('/')
+  // })
 
-  afterEach(() => {
-    cy.screenshot()
-  })
+  // afterEach(() => {
+  //   cy.screenshot()
+  // })
 
   context('Add items', () => {
     it('Adds a todo', () => {
@@ -26,14 +27,14 @@ describe('todo mvc tests', () => {
   
     it('Completes a todo', () => {
       cy.get('.new-todo').type(mainData.secondItem + '{enter}')
-      cy.get('.toggle').click()
-      cy.get('.toggle').should('be.checked')
+      cy.get(':nth-child(2) > .view > .toggle').click()
+      cy.get(':nth-child(2) > .view > .toggle').should('be.checked')
     })
   })
 
-  // context('Clear completed', () => {
-  //   it('Clears completed todos', () => {
-  //     cy.get('.clear-completed').click()
-  //   })
-  // })
+  context('Clear completed', () => {
+    it('Clears completed todos', () => {
+      cy.get('.clear-completed').click()
+    })
+  })
 })

@@ -6,6 +6,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'http://todomvc-app-for-testing.surge.sh/'
+    baseUrl: 'http://todomvc-app-for-testing.surge.sh/',
+    testIsolation: false
   },
 });
