@@ -36,4 +36,18 @@ describe('API tests', () =>{
             cy.log(response.body)
         })
     })
+
+    it('Auth', () => {
+        cy.request({
+            method: 'POST',
+            url: 'https://restful-booker.herokuapp.com/auth',
+            body: {
+                'username': 'admin',
+                'password': 'password123'
+            }
+        }).then(response => {
+            expect(response.body).has.property('token')
+            cy.log(response.body.token)
+        })
+    })
 })
