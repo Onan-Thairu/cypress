@@ -30,4 +30,10 @@ describe('todo mvc tests', () => {
       cy.get('.toggle').should('be.checked')
     })
   })
+
+  // context('Clear completed', () => {
+  //   it('Clears completed todos', () => {
+  //     cy.get('.clear-completed').click()
+  //   })
+  // })
 })
